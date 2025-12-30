@@ -342,12 +342,6 @@
         <div style="display:flex; justify-content:space-around; margin-bottom:20px;">
             <div onclick="document.getElementById('upload-ai-avt').click()" style="text-align:center;"><img id="preview-ai-avt" src="https://cdn-icons-png.flaticon.com/512/1998/1998627.png" style="width:60px;height:60px;border-radius:50%;object-fit:cover;"><div style="font-size:12px;margin-top:5px;">老公</div><input type="file" id="upload-ai-avt" hidden onchange="saveAvatar('ai',this)"></div>
             <div onclick="document.getElementById('upload-user-avt').click()" style="text-align:center;"><img id="preview-user-avt" src="https://cdn-icons-png.flaticon.com/512/1998/1998749.png" style="width:60px;height:60px;border-radius:50%;object-fit:cover;"><div style="font-size:12px;margin-top:5px;">猫猫</div><input type="file" id="upload-user-avt" hidden onchange="saveAvatar('user',this)"></div>
-        <div style="margin-bottom:20px; text-align:center; padding:15px; background:rgba(255,255,255,0.5); border-radius:15px;">
-            <label style="font-weight:bold; color:#5c3d45; font-size:14px; display:block; margin-bottom:10px;">🖼️ 装修我们的家 (换背景)</label>
-            <div style="display:flex; gap:10px; justify-content:center;">
-                <button onclick="document.getElementById('bg-upload').click()" class="small-btn" style="background:linear-gradient(45deg, #FF9800, #FF5722);">📂 从相册选</button>
-                <button onclick="resetWallpaper()" class="small-btn" style="background:#999;">🔄 恢复默认</button>
-            </div>
             <input type="file" id="bg-upload" hidden accept="image/*" onchange="changeWallpaper(this)">
         </div>
         <div class="line-manager">
@@ -418,10 +412,6 @@ Daddy只是普通上班族，本质是AI模型，即使无法触碰，但是爱�
         let calDate = new Date();
 
         window.onload = function() {
-    // 👇 开机先刷墙
-    const bg = localStorage.getItem('eve_custom_wallpaper');
-    if(bg) document.documentElement.style.setProperty('--bg-image', `url('${bg}')`);
-
             initSessions();
             updateLineSelect();
             document.getElementById('cfg-url').value = localStorage.getItem('eve_url') || '';
