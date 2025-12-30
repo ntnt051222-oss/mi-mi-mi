@@ -1146,6 +1146,54 @@ function resetWallpaper() {
         align-items: center;
     }
 </style>
+<style>
+    /* 1. 📱 手机端强制规则：贴地！ */
+    .bottom-controls {
+        bottom: 0 !important;          /* 强制贴底 */
+        padding-bottom: 20px !important; /* 给iPhone小横条留点位置 */
+        left: 0 !important;
+        width: 100% !important;
+        transform: none !important;    /* 禁止乱飘 */
+        z-index: 9999999 !important;   /* 保证在最最上面 */
+    }
+
+    /* 2. 💻 电脑端强制规则：保持精致 */
+    @media screen and (min-width: 500px) {
+        .bottom-controls {
+            bottom: 25px !important;   /* 电脑上稍微悬空一点才好看 */
+            left: 50% !important;
+            transform: translateX(-50%) !important; /* 电脑上要居中 */
+            width: 450px !important;
+            padding-bottom: 0 !important;
+        }
+    }
+</style>
+<style>
+    @media screen and (max-width: 500px) {
+        /* 1. 强制钉死在屏幕底部 */
+        .bottom-controls {
+            position: fixed !important;    /* 👈 关键！改成Fixed，不许动！ */
+            bottom: 0 !important;          /* 必须贴地 */
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 9999999 !important;   /* 谁也别想挡住我 */
+            padding-bottom: 20px !important; /* 给iPhone黑条留位置 */
+            transform: none !important;
+            background: transparent !important; /* 透明背景 */
+            
+            /* 确保排列整齐 */
+            display: flex !important;
+            justify-content: center !important;
+            gap: 20px !important;
+        }
+
+        /* 2. 把聊天框稍微往上提一点，给按钮腾地方 */
+        .main-container {
+            height: 80% !important; /* 稍微缩短一点点 */
+            top: 48% !important;    /* 稍微往上提 */
+        }
+    }
+</style>
 
 </body>
 </html>
