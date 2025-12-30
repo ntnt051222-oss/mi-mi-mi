@@ -1194,6 +1194,30 @@ function resetWallpaper() {
         }
     }
 </style>
+<style>
+    /* 1. 把聊天主窗口变成半透明玻璃 */
+    .main-container {
+        /* 背景颜色变淡 (0.2是透明度，越小越透) */
+        background: rgba(255, 255, 255, 0.15) !important; 
+        
+        /* 如果你是暗黑模式，用下面这一行代替上面那一行 (把上面那行删了，用下面这个) */
+        /* background: rgba(0, 0, 0, 0.3) !important; */
+
+        /* 加一点磨砂质感，防止背景太花看不清字 */
+        backdrop-filter: blur(5px) !important;
+        
+        /* 去掉边框和阴影，更像悬浮的 */
+        border: 1px solid rgba(255,255,255,0.2) !important;
+        box-shadow: none !important;
+    }
+
+    /* 2. 只有电脑上保留一点阴影，更有质感 */
+    @media screen and (min-width: 500px) {
+        .main-container {
+            box-shadow: 0 0 50px rgba(0,0,0,0.3) !important;
+        }
+    }
+</style>
 
 </body>
 </html>
